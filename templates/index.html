@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>여권 이미지 처리기</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>여권 이미지 처리기</h1>
+            <p>여권 사진을 업로드하여 자동으로 처리하고 최적화하세요</p>
+        </header>
+        <main>
+            <div class="upload-section">
+                <div id="dropZone" class="drop-zone">
+                    <div class="drop-zone-content">
+                        <i class="upload-icon">📁</i>
+                        <p>파일을 드래그하거나 클릭하여 업로드</p>
+                        <p class="file-types">지원 형식: PDF, JPG, PNG, GIF, BMP, TIFF</p>
+                        <input type="file" id="fileInput" accept=".pdf,.jpg,.jpeg,.png,.gif,.bmp,.tiff" style="display: none;">
+                    </div>
+                </div>
+                <div class="progress-bar" id="progressBar" style="display: none;">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+            </div>
+            <div class="results-section" id="resultsSection" style="display: none;">
+                <div class="image-comparison">
+                    <div class="image-container">
+                        <h3>원본 이미지</h3>
+                        <img id="originalImage" alt="원본 이미지">
+                        <button class="download-btn" id="downloadOriginal">원본 다운로드</button>
+                    </div>
+                    <div class="image-container">
+                        <h3>처리된 이미지</h3>
+                        <img id="processedImage" alt="처리된 이미지">
+                        <button class="download-btn" id="downloadProcessed">처리본 다운로드</button>
+                    </div>
+                </div>
+                <div class="process-info" id="processInfo"></div>
+            </div>
+        </main>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
